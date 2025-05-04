@@ -37,6 +37,15 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
+
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:5173",  
+]
+
+CORS_ALLOW_CREDENTIALS = True
+
+ROOT_URLCONF = 'service.urls'
+
 GRAPHENE = {
     'SCHEMA': 'Graphql.schema'
 }
@@ -51,6 +60,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'corsheaders',
     'Graphql',
     'expert',
     'team',
@@ -60,6 +70,7 @@ INSTALLED_APPS = [
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
+    'corsheaders.middleware.CorsMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
     'django.contrib.auth.middleware.AuthenticationMiddleware',
@@ -67,7 +78,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'expert_Team.urls'
+#ROOT_URLCONF = 'expert_Team.urls'
 
 TEMPLATES = [
     {
